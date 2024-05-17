@@ -1,0 +1,15 @@
+{
+  "namespace": "com.kafka.avro.dto",
+  "name": "Empleado",
+  "type": "record",
+  "fields": [
+    {
+      "name": "nombre",
+      "type": "string"
+    },
+    {
+      "name": "apellido",
+      "type": "string"
+    }
+  ]
+}

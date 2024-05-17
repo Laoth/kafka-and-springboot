@@ -18,11 +18,21 @@
 	<modules>
 		<module>SpringBootConsumer</module>
 		<module>SpringBootProvider</module>
+		<module>Schema</module>
 	</modules>
 
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+
+	<!-- Respositorio de Confluent-->
+	<repositories>
+		<repository>
+			<id>confluent</id>
+			<url>https://packages.confluent.io/maven/</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,15 +59,45 @@
 			<artifactId>spring-kafka-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Schema Registry Dependencies -->
+
+		<!-- Avro is a row-oriented remote procedure call and data serialization framework that produces a compact binary format. -->
+		<dependency>
+			<groupId>org.apache.avro</groupId>
+			<artifactId>avro</artifactId>
+			<version>1.11.3</version>
+		</dependency>
+
+		<!-- Kafka Avro Serializer -->
+		<dependency>
+			<groupId>io.confluent</groupId>
+			<artifactId>kafka-avro-serializer</artifactId>
+			<version>7.6.0</version>
+		</dependency>
+
+		<!-- Kafka Schema Registry -->
+		<dependency>
+			<groupId>io.confluent</groupId>
+			<artifactId>kafka-schema-registry-client</artifactId>
+			<version>7.6.0</version>
+		</dependency>
+
+
+		<!-- 3) Lombook -->
+		<!-- Lombok is a Java library that provides annotations to simplify Java development
+		by automating the generation of boilerplate code. Key features include automatic
+		generation of getters, setters, equals, hashCode, and toString methods,
+		as well as a facility for automatic resource management.
+		It aims to reduce the amount of manual coding, thereby streamlining the codebase
+		and reducing potential for errors. -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+
 
 </project>

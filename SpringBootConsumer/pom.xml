@@ -26,6 +26,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- AVRO Schema -->
+		<dependency>
+			<groupId>com.kafka.schema</groupId>
+			<artifactId>Schema</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

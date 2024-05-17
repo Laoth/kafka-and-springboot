@@ -2,6 +2,7 @@ package com.kafka.provider.controller;
 
 
 
+import com.kafka.avro.dto.Student;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.UUID;
 
 @RestController
 public class KafkaProviderController {
@@ -18,10 +21,11 @@ public class KafkaProviderController {
     KafkaTemplate kafkaTemplate;
 
     @PostMapping("/ventas/")
-    void sendMessage(@RequestBody String data){
+    String sendMessage(@RequestBody Student student){
 
-        LOGGER.info("Mensaje Recibido: " + data);
-        kafkaTemplate.send("operaciones-archivo",data);
+        LOGGER.info("Mensaje Recibido: " + student);
+        kafkaTemplate.send("operaciones-archivo", UUID.randomUUID().toString(),student);
+        return "mensaje enviado";
 
     }
 
